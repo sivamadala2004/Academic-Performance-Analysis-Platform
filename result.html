@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Edukate - Online Education Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="../static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/../static/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="#" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 text-uppercase text-primary">
+                    <i class="fa fa-book-reader mr-3"></i>Achieva
+                </h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <div class="navbar-nav ml-auto py-0">
+                    <a href="/home" class="nav-item nav-link ">PREDICTION</a>
+                    <a href="/graphs" class="nav-item nav-link">GRAPHS</a>
+                    <a href="../static/notebook.html/" class="nav-item nav-link">NOTEBOOK</a>
+                    <a href="/" class="nav-item nav-link">LOGOUT</a>
+                </div>
+
+            </div>
+
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-1">RESULT</h1>
+            <div class="d-inline-flex text-white mb-5">
+                <p class="m-0 text-uppercase">prediction</p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">graphs</p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">notebook</p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">logout</p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <title>Result</title>
+
+
+
+    <!--RESULT START-->
+
+    <div class="card">
+
+        <h1>Prediction Result</h1>
+
+        <h2>
+
+            {{prediction}}
+
+        </h2>
+
+        <h3>
+
+            Confidence:
+
+            {{confidence}}%
+
+        </h3>
+
+        <div class="progress">
+
+            <div class="bar" style="width:{{confidence}}%">
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <h2>LIME Explanation</h2>
+
+        {% if lime_html %}
+        <div class="lime-section">
+            {{ lime_html | safe }}
+        </div>
+        {% elif lime_error %}
+        <p>{{ lime_error }}</p>
+        {% endif %}
+
+        <h2>Recommendations</h2>
+
+        {% if recommendation_warning %}
+        <p>{{ recommendation_warning }}</p>
+        {% endif %}
+
+        {% if recommendation_source %}
+        <p>Source: {{ recommendation_source }}{% if recommendation_model %} ({{ recommendation_model }}){% endif %}</p>
+        {% endif %}
+
+        <h3>Key Recommendations</h3>
+        <ul>
+            {% for item in recommendations %}
+            <li>{{ item }}</li>
+            {% else %}
+            <li>No recommendations available.</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Suggestions</h3>
+        <ul>
+            {% for item in suggestions %}
+            <li>{{ item }}</li>
+            {% else %}
+            <li>No suggestions available.</li>
+            {% endfor %}
+        </ul>
+
+        <br>
+
+        <a href="/">
+
+            Predict Again
+
+        </a>
+
+    </div>
+
+    <!--RESULT END-->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 border-top py-4"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="m-0">
+                        Copyright &copy; 2026
+                        <a class="text-white" href="#">
+                            Higher Education Achievement
+                        </a>.
+                        All Rights Reserved.
+                    </p>
+                </div>
+
+                <div class="col-md-6 text-center text-md-right">
+                    <p class="m-0">
+                        Developed for Academic Performance Analysis and Student Achievement Prediction Using Machine
+                        Learning.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i
+            class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/../static/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../static/lib/counterup/counterup.min.js"></script>
+    <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../static/js/main.js"></script>
+
+    <style>
+        body {
+            background: #f4f7fc;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h1 {
+            color: #2b4eff;
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .card h2 {
+            color: #222;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 25px;
+            background: #e9ecef;
+            border-radius: 50px;
+            overflow: hidden;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .bar {
+            height: 100%;
+            background: linear-gradient(90deg, #2b4eff, #00c6ff);
+            border-radius: 50px;
+            transition: width 1s ease-in-out;
+        }
+
+        .lime-section {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .card ul {
+            text-align: left;
+            margin-top: 15px;
+            padding-left: 25px;
+        }
+
+        .card ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 35px;
+            background: #2b4eff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            background: #1639d6;
+            color: white;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .card h1 {
+                font-size: 30px;
+            }
+
+            .card h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</body>
+
+</html>

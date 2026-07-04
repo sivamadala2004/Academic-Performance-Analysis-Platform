@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Edukate - Online Education Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="../static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/../static/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+   
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="#" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 text-uppercase text-primary">
+                    <i class="fa fa-book-reader mr-3"></i>Achieva
+                </h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <div class="navbar-nav ml-auto py-0">
+                    <a href="/home" class="nav-item nav-link active">PREDICTION</a>
+                    <a href="/graphs" class="nav-item nav-link">GRAPHS</a>
+                    <a href="../static/notebook.html" class="nav-item nav-link">NOTEBOOK</a>
+                    <a href="/" class="nav-item nav-link">LOGOUT</a>
+                </div>
+
+            </div>
+
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
+        <div class="container text-center my-5 py-5">
+
+            <h5 class="text-white text-uppercase mt-4 mb-3">
+                Academic Performance Analysis Platform
+            </h5>
+
+            <h1 class="text-white display-3 mb-4">
+                Higher Education Achievement
+            </h1>
+
+            <p class="text-white mb-5" style="font-size: 20px;">
+                Analyze student academic performance and predict educational achievement
+                using advanced Machine Learning techniques. Our system helps institutions
+                identify learning patterns, evaluate student progress, and support
+                data-driven educational decision-making.
+            </p>
+
+            <div class="mx-auto" style="max-width: 700px;">
+                <a href="/logON" class="btn btn-primary btn-lg px-5 py-3 mr-3">
+                    Get Started
+                </a>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Header End -->
+
+<!-- PREDICTION START-->
+    <title>Student Performance Prediction</title>
+
+    <div class="container">
+
+        <h1>Student Performance Prediction</h1>
+
+        <form action="/predict" method="POST">
+
+            <div class="form-grid">
+
+
+                <div class="field">
+                    <label>Occupation</label>
+                    <select name="Occupation">
+                        <option value="1">Student</option>
+                        <option value="2">Part-Time Worker</option>
+                        <option value="3">Engineer</option>
+                        <option value="4">Teacher</option>
+                        <option value="5">Healthcare</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Sex</label>
+                    <select name="Sex">
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Age</label>
+                    <input type="number" step="any" name="Age" min="17" max="35">
+                </div>
+
+
+                <div class="field">
+                    <label>Residency in Dormitory</label>
+                    <select name="Residency_in_Dormitory">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Number of Family Members</label>
+                    <input type="number" step="any" name="Number_of_Family_Members">
+                </div>
+
+
+                <div class="field">
+                    <label>Parents Cohabitation Status</label>
+                    <select name="Parent_Cohabitation_Status">
+                        <option value="0">Separated</option>
+                        <option value="1">Living Together</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Mother Education</label>
+                    <select name="Mother_Education">
+                        <option value="0">Illiterate</option>
+                        <option value="1">Diploma & Below</option>
+                        <option value="2">Bachelor</option>
+                        <option value="3">Postgraduate</option>
+                        <option value="4">PhD+</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Father Education</label>
+                    <select name="Father_Education">
+                        <option value="0">Illiterate</option>
+                        <option value="1">Diploma & Below</option>
+                        <option value="2">Bachelor</option>
+                        <option value="3">Postgraduate</option>
+                        <option value="4">PhD+</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Mother Job Category</label>
+                    <select name="Mother_Job_Category">
+                        <option value="1">Homemaker</option>
+                        <option value="2">Technology & Engineering</option>
+                        <option value="3">Education</option>
+                        <option value="4">Medical Care</option>
+                        <option value="5">Services</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Father Job Category</label>
+                    <select name="Father_Job_Category">
+                        <option value="1">Homemaker</option>
+                        <option value="2">Technology & Engineering</option>
+                        <option value="3">Education</option>
+                        <option value="4">Medical Care</option>
+                        <option value="5">Services</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Criminal Records</label>
+                    <select name="Criminal_Records">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Legal Guardian</label>
+                    <select name="Legal_Guardian">
+                        <option value="1">Student</option>
+                        <option value="2">Mother</option>
+                        <option value="3">Father</option>
+                        <option value="4">Other</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Sport Activity / Week (minutes)</label>
+                    <input type="number" step="any" name="Average_Sport_Activity_Per_Week">
+                </div>
+
+
+                <div class="field">
+                    <label>Study Time / Week (minutes)</label>
+                    <input type="number" step="any" name="Average_Studying_Per_Week">
+                </div>
+
+
+                <div class="field">
+                    <label>Previous Semester Grade</label>
+                    <input type="number" step="any" min="0" max="20" name="Average_Grades_Previous_Semester">
+                </div>
+
+
+                <div class="field">
+                    <label>Scholarship</label>
+                    <select name="Having_Scholarship">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Financial Support From Parents</label>
+                    <select name="Financial_Support_Parents">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Extracurricular Classes</label>
+                    <select name="Using_Extracurricular_Classes">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Extracurricular Activities</label>
+                    <select name="Having_Extracurricular_Activities">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Mental Illness History</label>
+                    <select name="History_Mental_Illness">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Willingness To Study</label>
+                    <select name="Willingness_to_Studying">
+                        <option value="1">Very Low</option>
+                        <option value="2">Low</option>
+                        <option value="3">Moderate</option>
+                        <option value="4">High</option>
+                        <option value="5">Very High</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Physical Illness History</label>
+                    <select name="History_Physical_Illness">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Relationship Status</label>
+                    <select name="Marital_Status_Relationship">
+                        <option value="0">Single</option>
+                        <option value="1">Relationship</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Family Relationship Quality</label>
+                    <select name="Relationship_Quality_Family">
+                        <option value="0">Extremely Poor</option>
+                        <option value="1">Poor</option>
+                        <option value="2">Fair</option>
+                        <option value="3">Average</option>
+                        <option value="4">Good</option>
+                        <option value="5">Very Good</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Free Time After Classes (minutes)</label>
+                    <input type="number" step="any" name="Free_Time_After_Classes">
+                </div>
+
+
+                <div class="field">
+                    <label>Communication Quality</label>
+                    <select name="Communication_Quality_Classmates">
+                        <option value="0">Extremely Poor</option>
+                        <option value="1">Poor</option>
+                        <option value="2">Fair</option>
+                        <option value="3">Average</option>
+                        <option value="4">Good</option>
+                        <option value="5">Very Good</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Alcohol Consumption (Week)</label>
+                    <select name="Alcohol_Consumption_Week">
+                        <option value="0">Never</option>
+                        <option value="1">Low</option>
+                        <option value="2">Moderate</option>
+                        <option value="3">High</option>
+                        <option value="4">Very High</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label>Alcohol Consumption (Weekend)</label>
+                    <input type="number" step="any" name="Alcohol_Consumption_Weekend">
+
+                </div>
+
+
+                <div class="field">
+                    <label>Number of Absences</label>
+                    <input type="number" step="any" name="Number_of_Absences">
+                </div>
+
+
+            </div>
+
+            <button type="submit">
+
+                Predict Academic Performance
+
+            </button>
+
+        </form>
+
+    </div>
+
+<!-- PREDICTION END-->
+ <br><br><br><br>
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 border-top py-4"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="m-0">
+                        Copyright &copy; 2026
+                        <a class="text-white" href="#">
+                            Higher Education Achievement
+                        </a>.
+                        All Rights Reserved.
+                    </p>
+                </div>
+
+                <div class="col-md-6 text-center text-md-right">
+                    <p class="m-0">
+                        Developed for Academic Performance Analysis and Student Achievement Prediction Using Machine
+                        Learning.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/../static/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../static/lib/counterup/counterup.min.js"></script>
+    <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../static/js/main.js"></script>
+
+     <style>
+        body {
+            font-family: Arial;
+            background: #f4f7fc;
+            padding: 0px;
+        }
+
+        .from-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 0px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+        }
+
+        h1 {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+        .field {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+        label {
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+
+        }
+
+        input,
+        select {
+
+            padding: 10px;
+
+            border-radius: 8px;
+
+            border: 1px solid #ccc;
+
+        }
+
+        button {
+
+            margin-top: 30px;
+
+            width: 100%;
+
+            padding: 16px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 18px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+        }
+
+        button:hover {
+
+            background: #1749b5;
+
+        }
+    </style>
+</body>
+
+</html>

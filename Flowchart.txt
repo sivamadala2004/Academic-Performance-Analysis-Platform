@@ -1,0 +1,112 @@
+Work Flow:
+=================
+1. Import the packages
+
+2. Load the dataset
+	- Load higher_education_achievement.csv
+	- Map Academic_Performance labels (Bad, Average, Good, Very Good)
+	- Drop duplicate rows
+
+3. Feature-Target Separation
+	- Split features (X) by dropping Academic_Performance, Average_Student_Final_Grades, and label
+	- Set target variable (y) as Academic_Performance
+
+4. Data Visualization
+	- Class Distribution of Label
+	- Generate Correlation Matrix using Seaborn heatmap
+
+5. Data Preprocessing
+	- Impute missing values using SimpleImputer
+	- Scale features using MinMaxScaler
+
+6. Feature Selection
+	- Calculate ANOVA scores and Laplacian scores
+	- Compute Combined Rank scores
+	- Perform Backward Elimination Feature Selection (BEFS)
+
+7. Model Training 
+
+	- Existing Models
+		- RandomForest Classifier
+		- ANN (MLP Classifier)
+		- Conventional ECOC (OutputCodeClassifier)
+
+	- Proposed Model Training
+		- Proposed GA-ECOC No FS (without Feature Selection using LinearSVC)
+		- Proposed GA-ECOC with SVM and Feature Selection
+
+	- Extension:
+		- Data Balancing
+			- SMOTE
+		- Data Normalization
+			- MinMaxScaler
+		- Model Training
+			- Stacking Classifier(base estimators: XGBClassifier, LGBMClassifier, CatBoostClassifier,
+							 RandomForestClassifier, and CalibratedClassifierCV (LinearSVC,  meta model: XGBClassifier)
+
+
+8. Model Saving
+	- Save the best performing model
+
+9. Model Evaluation
+	- Performance Metrics: Accuracy, Precision, Recall, F1-Score, and AUC-ROC
+	- Plot Confusion Matrix
+
+10. Model Comparison
+	- Compare models numerically using results table
+	- Compare models visually using bar chart comparisons
+
+11. Explainable AI (XAI)
+	- XAI - LIME
+	- XAI - SHAP
+	- XAI - PDP (Partial Dependence Plot)
+	- XAI - ICE (Individual Conditional Expectation Plot)
+
+Frontend:
+=================
+1. Frontend is developed with help of FastAPI Framework
+
+2. Input Prediction Flow
+
+	- Student Data Collection
+		- The user enters the required student information and demographic details through the prediction form interface.
+
+	- Feature Transformation
+		- The submitted form values are converted into the corresponding input features required by the trained machine learning model.
+
+	- Data Preprocessing and Scaling
+		- The generated feature values are preprocessed and normalized using the previously saved feature scaler to ensure consistency with the model’s 			training environment.
+
+	- Student Performance Prediction
+		- The scaled feature set is passed to the trained Stacking Classifier model to predict the student's academic performance outcome.
+
+	- Confidence Score Generation
+		- Prediction probabilities are calculated to determine the confidence level associated with the generated prediction result.
+
+	- Model Explainability using LIME
+
+	- Recommendation Generation
+
+	- Result Presentation
+		- The final prediction outcome, confidence score, explanation visualization, and recommendations are displayed on the result page for the user.
+
+
+
+Extension:
+=============
+
+This project proposes an AI and Machine Learning based student academic performance prediction system for higher education by integrating student health records, socio-economic background, and educational attributes.
+
+The proposed system applies data mining and machine learning techniques to analyze the relationship between health conditions, socio-economic factors, and academic achievement, enabling early prediction of student educational performance.
+
+To improve prediction quality and identify influential factors, feature selection techniques such as One-Way Analysis of Variance (ANOVA) and Laplacian Score were implemented to rank and select the most significant attributes contributing to student success.
+
+The baseline prediction framework was further enhanced using the Error Correcting Output Codes (ECOC) classification strategy to improve classification robustness by reducing False Positive Rate (FPR) and increasing True Positive Rate (TPR), leading to more reliable academic performance prediction.
+
+As an extension to the original work, advanced preprocessing techniques including SMOTE for class balancing and Min-Max Scaling for feature normalization were incorporated. In addition, an ensemble-based Stacking Classifier was developed to improve predictive capability and model generalization, achieving an overall prediction accuracy of 98.6%.
+
+To enhance transparency and interpretability of the prediction process, Explainable Artificial Intelligence (XAI) methods including LIME, Partial Dependence Plot (PDP), and Individual Conditional Expectation (ICE) were integrated to provide both local and global explanations of model behavior and feature influence.
+
+A user-friendly web application was developed using the FastAPI framework to allow users to input student information, perform academic performance prediction, visualize explanations, and access model outputs through an interactive interface.
+
+Furthermore, the system integrates an Ollama-based Large Language Model (LLM) to generate intelligent academic recommendations and personalized improvement suggestions based on the predicted student performance results.
